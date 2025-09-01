@@ -57,5 +57,20 @@ Este proyecto está bajo la Licencia MIT.
 
 ## 👥 Contribución
 
-Para contribuir al proyecto, por favor lee las guías de contribución y sigue el flujo de trabajo GitFlow.
+Para contribuir al proyecto:
+
+1. **Leer la [Guía para Colaboradores](./docs/INSTRUCCIONES_COLABORADORES.md)** 📖
+2. **Seguir el flujo de trabajo GitFlow** (documentado en [docs/GITFLOW.md](./docs/GITFLOW.md))
+3. **Revisar la documentación técnica** en la carpeta [docs/](./docs/)
+
+### 🚀 Inicio Rápido
+
+```bash
+# Clonar repositorio
+git clone https://github.com/CODES-UNLU/bolsa_de_trabajo_codes.git
+cd bolsa_de_trabajo_codes
+
+# Cambiar a rama de desarrollo
+git checkout develop
+```
 
