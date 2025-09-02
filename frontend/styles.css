@@ -1,0 +1,721 @@
+:root {
+  --primary: #39c0c3;        /* Azul turquesa principal */
+  --primary-dark: #2a8a8d;   /* Azul turquesa oscuro */
+  --secondary: #1a1a1a;      /* Negro/gris muy oscuro */
+  --background: #ffffff;      /* Blanco */
+  --background-alt: #f8f9fa; /* Gris muy claro */
+  --text: #455769;           /* Azul grisáceo para texto */
+  --text-light: hsl(208, 7%, 46%);     /* Gris para texto secundario */
+  --border: #e9ecef;         /* Gris claro para bordes */
+}
+
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: inter, sans-serif; /* Fuente tipográfica */
+  background-color: #39c0c3; /* Color de fondo azul turquesa */
+  margin: 0; /* Elimina el margen por defecto */
+  height: 100vh; /* Altura fija de la ventana */
+  overflow: hidden; /* Elimina completamente el scroll */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header responsive */
+.header-responsive {
+  background-color: #faf8f8; /* Color de fondo blanco */
+  color: rgb(255, 255, 255); /* Color del texto blanco */
+  padding: 12px 0; /* Padding reducido */
+  text-align: center; /* Centra el texto */
+  width: 100%; /* Ancho completo */
+  margin-top: 0; /* Elimina el margen superior */
+  position: fixed; /* Fija el encabezado en la parte superior */
+  top: 0; /* Posición superior */
+  box-shadow: 0px 0px 15px #455769; /* Sombra para darle profundidad */
+  z-index: 1000;
+}
+
+.logo-responsive {
+  height: 45px; /* Logo más pequeño */
+  max-width: 100%;
+  transition: height 0.3s ease;
+}
+
+/* Main wrapper y contenido */
+.main-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 69px; /* Espacio para el header fijo (12px + 45px + 12px) */
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 69px - 44px); /* Altura total menos header y footer */
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 0; /* Sin padding inferior */
+}
+
+/* Container del login */
+.login-container {
+  background-color: rgb(255, 255, 255); /* Fondo blanco para el contenedor de inicio de sesión */
+  padding: 18px 25px; /* Padding reducido */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 0 30px hsl(210, 2%, 18%); /* Sombra para darle profundidad */
+  width: 100%; /* Ancho completo del contenedor */
+  max-width: 500px; /* Ancho máximo aumentado */
+  text-align: center; /* Centra el texto dentro del contenedor */
+  animation: fadeIn 1s;
+  margin: 0 auto; /* Centra horizontalmente */
+}
+
+.login-title {
+  font-size: 1.4rem; /* Tamaño reducido */
+  margin-bottom: 0.8rem; /* Margen reducido */
+  color: var(--text);
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Sección de login con Google */
+.google-login-section {
+  margin-bottom: 1rem; /* Margen reducido */
+}
+
+.btn-google {
+  background-color: #ffffff !important;
+  border: 2px solid #e0e0e0 !important;
+  color: #333333 !important;
+  padding: 7px 18px; /* Padding reducido */
+  border-radius: 8px;
+  font-size: 14px; /* Tamaño reducido */
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-google:hover {
+  background-color: #f8f9fa !important;
+  border-color: #d0d0d0 !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.btn-google i {
+  color: #4285f4;
+}
+
+/* Separador */
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 0.6rem 0; /* Margen reducido */
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.divider span {
+  background: white;
+  padding: 0 12px;
+  color: #666;
+  font-size: 12px; /* Tamaño reducido */
+  font-weight: 500;
+}
+
+/* Formulario */
+#login-formulario {
+  display: flex; /* Utiliza Flexbox para el formulario */
+  flex-direction: column; /* Alinea los elementos en columna */
+  gap: 10px; /* Espacio reducido entre elementos */
+  margin-top: 10px; /* Espacio superior reducido */
+  text-align: left; /* Alinea el texto a la izquierda */
+  width: 100%; /* Ancho completo del contenedor */
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem; /* Margen reducido */
+  text-align: left;
+  display: block;
+  font-size: 12px; /* Tamaño reducido */
+}
+
+.form-control {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px; /* Padding reducido */
+  font-size: 13px; /* Tamaño reducido */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  transition: border 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.form-control:focus {
+  border: 1.5px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(57,192,195,0.15);
+  outline: none;
+}
+
+/* Contenedor del campo de contraseña */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input {
+  padding-right: 40px; /* Espacio para el botón del ojo */
+}
+
+/* Botón del ojo para mostrar/ocultar contraseña */
+.password-toggle-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.password-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--primary);
+}
+
+.password-toggle-btn:focus {
+  outline: none;
+  background-color: rgba(57, 192, 195, 0.1);
+  color: var(--primary);
+}
+
+.password-toggle-btn i {
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+/* Estado activo del botón */
+.password-toggle-btn.active {
+  color: var(--primary);
+}
+
+.password-toggle-btn.active i {
+  transform: scale(1.1);
+}
+
+/* Botón personalizado */
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: white !important;
+  padding: 7px 18px; /* Padding reducido */
+  border-radius: 15px;
+  font-size: 14px; /* Tamaño reducido */
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(57,192,195,0.3);
+}
+
+/* Enlaces del formulario */
+#login-formulario a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 12px; /* Tamaño reducido */
+}
+
+#login-formulario a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Footer en línea recta */
+footer {
+  background: var(--secondary);
+  color: white;
+  padding: 8px 0; /* Padding reducido */
+  text-align: center;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  height: 44px; /* Altura fija del footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-line {
+  width: 100%;
+  overflow-x: auto; /* Scroll horizontal si es necesario */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px; /* Espacio entre elementos */
+  padding: 0 15px;
+  white-space: nowrap; /* Evita saltos de línea */
+}
+
+.footer-item {
+  font-size: 11px; /* Tamaño reducido */
+  color: #cccccc;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.footer-separator {
+  color: #666666;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.footer-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.footer-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-link i {
+  font-size: 10px; /* Iconos más pequeños */
+}
+
+/* Media Queries para Responsive - Sistema mejorado para PC y Portátiles */
+/* Estilos base para PC de escritorio (alta resolución) */
+@media (min-width: 1024px) and (min-resolution: 96dpi) {
+  .login-container {
+    max-width: 500px;
+    padding: 20px 30px;
+  }
+  
+  .login-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-control {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  
+  .btn-primary, .btn-google {
+    padding: 8px 20px;
+    font-size: 15px;
+  }
+  
+  .form-label {
+    font-size: 13px;
+    margin-bottom: 0.3rem;
+  }
+  
+  #login-formulario {
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  .google-login-section {
+    margin-bottom: 1.2rem;
+  }
+  
+  .divider {
+    margin: 0.8rem 0;
+  }
+  
+  .divider span {
+    font-size: 13px;
+    padding: 0 15px;
+  }
+  
+  #login-formulario a {
+    font-size: 13px;
+  }
+  
+  footer {
+    height: 48px;
+    padding: 10px 0;
+  }
+  
+  .footer-content {
+    gap: 8px;
+    padding: 0 20px;
+  }
+  
+  .footer-item {
+    font-size: 12px;
+    gap: 4px;
+  }
+  
+  .footer-separator {
+    font-size: 12px;
+  }
+  
+  .footer-link i {
+    font-size: 11px;
+  }
+}
+
+/* Estilos para portátiles (resolución media) */
+@media (min-width: 1024px) and (max-resolution: 95dpi) {
+  .login-container {
+    max-width: 480px;
+    padding: 18px 28px;
+  }
+  
+  .login-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.9rem;
+  }
+  
+  .form-control {
+    padding: 7px 11px;
+    font-size: 13px;
+  }
+  
+  .btn-primary, .btn-google {
+    padding: 7px 19px;
+    font-size: 14px;
+  }
+  
+  .form-label {
+    font-size: 12px;
+    margin-bottom: 0.25rem;
+  }
+  
+  #login-formulario {
+    gap: 11px;
+    margin-top: 11px;
+  }
+  
+  .google-login-section {
+    margin-bottom: 1.1rem;
+  }
+  
+  .divider {
+    margin: 0.7rem 0;
+  }
+  
+  .divider span {
+    font-size: 12px;
+    padding: 0 13px;
+  }
+  
+  #login-formulario a {
+    font-size: 12px;
+  }
+  
+  footer {
+    height: 46px;
+    padding: 9px 0;
+  }
+  
+  .footer-content {
+    gap: 7px;
+    padding: 0 18px;
+  }
+  
+  .footer-item {
+    font-size: 11px;
+    gap: 3px;
+  }
+  
+  .footer-separator {
+    font-size: 11px;
+  }
+  
+  .footer-link i {
+    font-size: 10px;
+  }
+}
+
+/* Estilos para tablets */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .header-responsive {
+    padding: 10px 0;
+  }
+  
+  .logo-responsive {
+    height: 40px;
+  }
+  
+  .main-wrapper {
+    padding-top: 60px;
+  }
+  
+  .main-content {
+    height: calc(100vh - 60px - 40px);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .login-container {
+    padding: 16px 22px;
+    margin: 0 auto;
+    max-width: 450px;
+  }
+  
+  .login-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  footer {
+    height: 40px;
+    padding: 6px 0;
+  }
+  
+  .footer-content {
+    gap: 5px;
+    padding: 0 12px;
+  }
+  
+  .footer-item {
+    font-size: 10px;
+  }
+  
+  .footer-separator {
+    font-size: 10px;
+  }
+}
+
+/* Estilos para móviles grandes */
+@media (max-width: 767px) and (min-width: 576px) {
+  .header-responsive {
+    padding: 8px 0;
+  }
+  
+  .logo-responsive {
+    height: 35px;
+  }
+  
+  .main-wrapper {
+    padding-top: 51px;
+  }
+  
+  .main-content {
+    height: calc(100vh - 51px - 36px);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  .login-container {
+    padding: 14px 18px;
+    margin: 0 auto;
+    max-width: 400px;
+    border-radius: 12px;
+  }
+  
+  .login-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .form-control {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .btn-primary, .btn-google {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  
+  footer {
+    height: 36px;
+    padding: 5px 0;
+  }
+  
+  .footer-content {
+    gap: 4px;
+    padding: 0 8px;
+  }
+  
+  .footer-item {
+    font-size: 9px;
+  }
+  
+  .footer-separator {
+    font-size: 9px;
+  }
+  
+  .footer-link i {
+    font-size: 9px;
+  }
+}
+
+/* Estilos para móviles medianos */
+@media (max-width: 575px) and (min-width: 375px) {
+  .main-wrapper {
+    padding-top: 47px;
+  }
+  
+  .main-content {
+    height: calc(100vh - 47px - 32px);
+  }
+  
+  .login-container {
+    padding: 12px 15px;
+    max-width: 350px;
+  }
+  
+  .login-title {
+    font-size: 1.1rem;
+  }
+  
+  .form-control {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+  
+  .btn-primary, .btn-google {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+  
+  footer {
+    height: 32px;
+    padding: 4px 0;
+  }
+  
+  .footer-content {
+    gap: 3px;
+    padding: 0 6px;
+  }
+  
+  .footer-item {
+    font-size: 8px;
+  }
+  
+  .footer-separator {
+    font-size: 8px;
+  }
+  
+  .footer-link i {
+    font-size: 8px;
+  }
+}
+
+/* Estilos para móviles pequeños */
+@media (max-width: 374px) {
+  .main-wrapper {
+    padding-top: 43px;
+  }
+  
+  .main-content {
+    height: calc(100vh - 43px - 28px);
+  }
+  
+  .login-container {
+    padding: 10px 12px;
+    max-width: 300px;
+  }
+  
+  .login-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-control {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+  
+  .btn-primary, .btn-google {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+  
+  footer {
+    height: 28px;
+    padding: 3px 0;
+  }
+  
+  .footer-content {
+    gap: 2px;
+    padding: 0 4px;
+  }
+  
+  .footer-item {
+    font-size: 7px;
+  }
+  
+  .footer-separator {
+    font-size: 7px;
+  }
+  
+  .footer-link i {
+    font-size: 7px;
+  }
+}
+
+/* ========================================
+   SCROLL INDICATOR
+   ======================================== */
+
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  z-index: 1001;
+}
+
+.scroll-progress {
+  height: 100%;
+  background: var(--gradient);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* FINALIZA FOOTER */
+
+/* REVISION DE INICIAR SESION CON GOOGLE/FACEBOOK/GITHUB */
+
